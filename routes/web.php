@@ -17,4 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('permission');
+
+Route::get('/registracion', 'Auth\RegisterController@showRegistrationForm')->name('register');
+
+Route::post('/registracion', 'Auth\RegisterController@register');
+
